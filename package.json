@@ -1,0 +1,24 @@
+{
+  "name": "node-todo",
+  "version": "1.0.0",
+  "description": "A simple todo app on node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merttekfidan/node-todo.git"
+  },
+  "author": "Merdjan Tekfidan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/merttekfidan/node-todo/issues"
+  },
+  "homepage": "https://github.com/merttekfidan/node-todo#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
