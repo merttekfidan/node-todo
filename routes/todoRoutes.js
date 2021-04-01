@@ -7,4 +7,6 @@ router
   .route("/")
   .get(todoController.getAllTodos)
   .post(todoController.createTodo);
+
+router.route("/:id").patch(todoController.toggleTodo);
 module.exports = router;
