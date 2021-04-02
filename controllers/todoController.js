@@ -1,4 +1,6 @@
 const Todo = require("../models/todoModel");
+const catchAsync = require("./../utils/catchAsync");
+const AppError = require("./../utils/appError");
 
 exports.getAllTodos = async (req, res, next) => {
   const todos = await Todo.find();
@@ -44,3 +46,17 @@ exports.toggleTodo = async (req, res) => {
     console.log(err);
   }
 };
+
+exports.deleteTodo = catchAsync(async (req, res, next) => {
+  const todo = await Todo.findOne({ _id: req.params.id });
+  if (!todo) {
+    return next(new AppError("No todo found with that Id", 400));
+  } else if (todo.done === false) {
+    return next(new AppError("You cannot remove a Todo before complete", 400));
+  } else {
+    res.status(200).json({
+      status: "success",
+      todo,
+    });
+  }
+});
